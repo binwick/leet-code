@@ -63,11 +63,11 @@ func traversing(node *ListNode) {
 func main() {
 
 	//l1 := &ListNode{Val: 2, Next: &ListNode{Val: 4}}
-	//l1 := &ListNode{Val: 2, Next: &ListNode{Val: 4, Next: &ListNode{Val: 3}}}
-	//l1 := &ListNode{Val: 2, Next: &ListNode{Val: 4, Next: &ListNode{Val: 3}}}
-
-	l1 := &ListNode{Val: 5}
-	l2 := &ListNode{Val: 5}
+	l1 := &ListNode{Val: 2, Next: &ListNode{Val: 4, Next: &ListNode{Val: 3}}}
+	l2 := &ListNode{Val: 5, Next: &ListNode{Val: 6, Next: &ListNode{Val: 4}}}
+	//
+	//l1 := &ListNode{Val: 5}
+	//l2 := &ListNode{Val: 5}
 
 	l3 := addTwoNumbers(l1, l2)
 	traversing(l1)
