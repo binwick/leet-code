@@ -26,10 +26,10 @@ func reverseList(head *ListNode) *ListNode {
 func traversing(node *ListNode) {
 	var p = node
 	for p != nil {
-		fmt.Printf("%v\t", p.Val)
+		fmt.Printf("%v -> ", p.Val)
 		p = p.Next
 	}
-	fmt.Println()
+	fmt.Println("nil")
 }
 
 func main() {
