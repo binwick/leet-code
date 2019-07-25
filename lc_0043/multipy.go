@@ -6,28 +6,28 @@ import (
 )
 
 func multiply(num1 string, num2 string) string {
+	if num1 == "0" || num2 == "0" {
+		return "0"
+	}
 	var s string
-	for i := len(num1) - 1; i >= 0; i-- {
-		var next int
-		for j := len(num2) - 1; j >= 0; j-- {
-			ni := int(num1[i] - 48)
-			nj := int(num2[j] - 48)
-			tmp := ni*nj + next
-			if i == len(num1)-1 {
-				s = strconv.Itoa(tmp%10) + s
-				next = tmp / 10
-			} else {
-				sum := int(s[j]-48) + tmp%10
-				next = sum/10 + tmp/10
-				s = s[0:j] + strconv.Itoa(sum%10) + s[j+1:]
+	l1 := len(num1)
+	l2 := len(num2)
+	var a = make([]int, l1+l2)
+	for i := l1 - 1; i >= 0; i-- {
+		for j := l2 - 1; j >= 0; j-- {
+			ni := int(num1[i] - '0') // '0' = 48
+			nj := int(num2[j] - '0')
+			a[i+j] += ni * nj
+			if a[i+j] >= 10 && (i+j) != 0 {
+				a[i+j-1] += a[i+j] / 10
+				a[i+j] = a[i+j] % 10
 			}
 		}
-		s = strconv.Itoa(next) + s
+	}
+	for i := 0; i <= l1+l2-2; i++ {
+		s += strconv.Itoa(a[i])
 	}
 
-	if s[0] == 48 {
-		return s[1:]
-	}
 	return s
 }
 
