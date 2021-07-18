@@ -2,13 +2,14 @@ package main
 
 import "fmt"
 
+var parenMap = map[string]string{
+	")": "(",
+	"]": "[",
+	"}": "{",
+}
+
 func isValid(s string) bool {
 	var stack []string
-	var parenMap = map[string]string{
-		")": "(",
-		"]": "[",
-		"}": "{",
-	}
 	for _, e := range s {
 		c := string(e)
 		if _, ok := parenMap[c]; !ok {
