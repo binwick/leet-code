@@ -13,8 +13,10 @@ func isValid(s string) bool {
 	for _, e := range s {
 		c := string(e)
 		if _, ok := parenMap[c]; !ok {
+			// 左括号
 			stack = append(stack, c)
 		} else {
+			// 右括号
 			if len(stack) == 0 {
 				return false
 			}
